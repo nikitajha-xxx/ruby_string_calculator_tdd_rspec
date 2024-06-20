@@ -25,5 +25,12 @@ describe StringCalculator do
             sum = calc.add("1,2")
             expect(sum).to eql(3)
         end
+
+        #Case 4 : Handle String with only n numbers by returning the addition of all the numbers
+        it "can return output as the addition of the n numbers of integer present in the string" do
+            calc = StringCalculator.new
+            sum = calc.add("1,2,3")
+            expect(sum).to eql(6)
+        end
     end
 end
