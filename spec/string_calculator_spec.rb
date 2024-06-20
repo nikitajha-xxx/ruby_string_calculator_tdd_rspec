@@ -11,5 +11,12 @@ describe StringCalculator do
             sum = calc.add("")
             expect(sum).to eql(0)
         end
+
+        #Case 2 : Handle String with only 1 number by returning the number itself
+        it "can return output as the number itself when string has only 1 number" do
+            calc = StringCalculator.new
+            sum = calc.add("1")
+            expect(sum).to eql(1)
+        end
     end
 end
