@@ -18,5 +18,12 @@ describe StringCalculator do
             sum = calc.add("1")
             expect(sum).to eql(1)
         end
+
+        #Case 3 : Handle String with only 2 numbers by returning the addition of the two
+        it "can return output as the addition of the two numbers present in the string" do
+            calc = StringCalculator.new
+            sum = calc.add("1,2")
+            expect(sum).to eql(3)
+        end
     end
 end
