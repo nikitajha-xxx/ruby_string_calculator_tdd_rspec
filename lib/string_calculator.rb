@@ -2,10 +2,14 @@ class StringCalculator
     def add(string_numbers)
         if(string_numbers.empty?)
             return 0
-        elsif(string_numbers.include?(","))
-            return string_numbers.split(/[,,\n]/).map(&:to_i).reduce(:+)
         else
-            return string_numbers.to_i
+            split_num = split_numbers(string_numbers)
+            return split_num.map(&:to_i).reduce(:+)
         end
     end
+
+    def split_numbers(numbers)
+        return numbers.split(/[,,\n]/)
+    end
 end
+
