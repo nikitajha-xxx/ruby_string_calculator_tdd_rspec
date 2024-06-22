@@ -3,8 +3,7 @@ class StringCalculator
         if(string_numbers.empty?)
             return 0
         elsif(string_numbers.include?(","))
-            numbers = string_numbers.split(",")
-            return (numbers[0].to_i + numbers[1].to_i)
+            return string_numbers.split(",").map(&:to_i).reduce(:+)
         else
             return string_numbers.to_i
         end
