@@ -2,7 +2,6 @@ require './lib/string_calculator.rb'
 
 describe StringCalculator do 
 
-    
     context "Given a String with numbers and add those numbers" do 
 
         #Case 1 : Handle Empty String Input by returning 0 as Output
@@ -30,6 +29,13 @@ describe StringCalculator do
         it "can return output as the addition of the n numbers of integer present in the string" do
             calc = StringCalculator.new
             sum = calc.add("1,2,3")
+            expect(sum).to eql(6)
+        end
+
+        #Case 5 : Handle String with new lines between numbers instead of commas
+        it "can return output as the addition of the n numbers of integer present when new line is present in place of comma" do
+            calc = StringCalculator.new
+            sum = calc.add("1\n2,3")
             expect(sum).to eql(6)
         end
     end
