@@ -1,16 +1,14 @@
 class StringCalculator 
     def add(string_numbers)
-        if(string_numbers.empty?)
-            return 0
-        else
-            split_num = split_numbers(string_numbers)
-            raiseExceptioforNegative(split_num)
-            return split_num.map(&:to_i).reduce(:+)
-        end
+        split_num = split_numbers(string_numbers)
+        raiseExceptioforNegative(split_num)
+        return split_num.map(&:to_i).reduce(:+)
     end
 
     def split_numbers(numbers)
-        if(isCustomDelimiterPresent(numbers))
+        if(numbers.empty?)
+            return [0]
+        elsif(isCustomDelimiterPresent(numbers))
             return split_numbers_with_custom_delimiters(numbers)
         end
         return split_numbers_with_comma_or_new_line(numbers)
