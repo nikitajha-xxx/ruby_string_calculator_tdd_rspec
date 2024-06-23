@@ -4,10 +4,7 @@ class StringCalculator
             return 0
         else
             split_num = split_numbers(string_numbers)
-            negative_number = split_num.any?{ |num| num.to_i < 0 }
-            if negative_number
-                raise RuntimeError
-            end
+            raiseExceptioforNegative(split_num)
             return split_num.map(&:to_i).reduce(:+)
         end
     end
@@ -32,6 +29,13 @@ class StringCalculator
 
     def split_numbers_with_comma_or_new_line(numbers)
         return numbers.split(/[,,\n]/)
+    end
+
+    def raiseExceptioforNegative(split_num)
+        negative_number = split_num.any?{ |num| num.to_i < 0 }
+        if negative_number
+            raise RuntimeError
+        end
     end
 end
 
