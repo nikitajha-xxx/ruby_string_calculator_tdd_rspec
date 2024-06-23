@@ -34,8 +34,10 @@ class StringCalculator
     def raiseExceptioforNegative(split_num)
         negative_number = split_num.any?{ |num| num.to_i < 0 }
         if negative_number
-            raise RuntimeError
+            num = split_num.find{ |num| num.to_i < 0 }
+            raise RuntimeError, "negative numbers not allowed #{num}"
         end
     end
 end
+
 
