@@ -55,5 +55,15 @@ describe StringCalculator do
             rescue RuntimeError => e
             end
         end
+
+        #Case 8 : Handle String with a Multiple Negative Numbers by throwing an exception
+        it "can raise an error exception for string that has multiple negative numbers" do
+            calc = StringCalculator.new
+            begin
+                calc.add("1,-2,-3")
+                fail "Negative Number Exception"
+            rescue RuntimeError => e
+            end
+        end
     end
 end
