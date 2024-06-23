@@ -45,5 +45,15 @@ describe StringCalculator do
             sum = calc.add("//;\n1;2")
             expect(sum).to eql(3)
         end
+
+        #Case 7 : Handle String with a Negative Number by throwing an exception
+        it "can raise an error exception for string that has a negative number" do
+            calc = StringCalculator.new
+            begin
+                calc.add("1,-2,3")
+                fail "Negative Number Exception"
+            rescue RuntimeError => e
+            end
+        end
     end
 end
