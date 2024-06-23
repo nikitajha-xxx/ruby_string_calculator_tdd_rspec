@@ -38,5 +38,12 @@ describe StringCalculator do
             sum = calc.add("1\n2,3")
             expect(sum).to eql(6)
         end
+
+        #Case 6 : Handle String with Custom delimiters that starts with //
+        it "can return output as the addition of the n numbers of integer present when the string starts with // and a custom delimiter is present " do
+            calc = StringCalculator.new
+            sum = calc.add("//;\n1;2")
+            expect(sum).to eql(3)
+        end
     end
 end
