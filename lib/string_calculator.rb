@@ -4,6 +4,10 @@ class StringCalculator
             return 0
         else
             split_num = split_numbers(string_numbers)
+            negative_number = split_num.any?{ |num| num.to_i < 0 }
+            if negative_number
+                raise RuntimeError
+            end
             return split_num.map(&:to_i).reduce(:+)
         end
     end
